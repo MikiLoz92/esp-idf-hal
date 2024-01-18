@@ -572,6 +572,8 @@ impl<'d> AsyncCanDriver<'d, CanDriver<'d>> {
     }
 }
 
+unsafe impl<'d> Send for AsyncCanDriver<'d, CanDriver<'d>> {}
+
 impl<'d, T> AsyncCanDriver<'d, T>
 where
     T: BorrowMut<CanDriver<'d>>,
